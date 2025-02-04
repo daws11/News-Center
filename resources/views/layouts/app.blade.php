@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<!-- development -->
 <head>
     <meta charset="utf-8" />
     <title>Notifikasy Politik 👀</title>
