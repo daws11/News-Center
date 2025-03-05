@@ -74,7 +74,7 @@
             <div class="container px-0">
                 <nav class="navbar navbar-light navbar-expand-xl">
                     <a href="{{ route('index') }}" class="navbar-brand d-block">
-                        <img src="{{ asset('img/logo.jpg') }}" alt="" class="img-fluid"
+                        <img src="{{ asset('img/notif.png') }}" alt="" class="img-fluid"
                             style="max-width: 130px;">
                     </a>
                     <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse"
@@ -122,6 +122,7 @@
             </div>
         </div>
     </div>
+
     <!-- Navbar End -->
 
     <!-- Modal Search Start -->
@@ -152,129 +153,21 @@
     <div class="container-fluid bg-dark footer py-5">
         <div class="container py-5">
             <div class="row g-5">
-                <div class="col-lg-6 col-xl-3">
+                <div class="col-lg-5 col-xl-6">
                     <div class="footer-item-1">
-                        <h4 class="mb-4 text-white">Get In Touch</h4>
                         <p class="text-secondary line-h">
-                            Address: <span class="text-white">Jakarta</span>
+                            Email: <span class="text-white">admin@notifikasy.com</span>
                         </p>
                         <p class="text-secondary line-h">
-                            Email: <span class="text-white">theun@gmail.com</span>
-                        </p>
-                        <p class="text-secondary line-h">
-                            Phone: <span class="text-white">+62</span>
+                            Phone: <span class="text-white">+62 821-1946-4227</span>
                         </p>
                         <div class="d-flex line-h">
-                            <a class="btn btn-light me-2 btn-md-square rounded-circle" href="#"><i
-                                    class="fab fa-twitter text-dark"></i></a>
-                            <a class="btn btn-light me-2 btn-md-square rounded-circle" href="#"><i
-                                    class="fab fa-facebook-f text-dark"></i></a>
-                            <a class="btn btn-light me-2 btn-md-square rounded-circle" href="#"><i
-                                    class="fab fa-youtube text-dark"></i></a>
-                            <a class="btn btn-light btn-md-square rounded-circle" href="#"><i
-                                    class="fab fa-github text-dark"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-xl-3">
-                    <div class="footer-item-2">
-                        @foreach (\App\Models\News::where('status', 'Accept')->orderBy('created_at', 'desc')->take(1)->get() as $news)
-                            <div class="d-flex flex-column mb-4">
-                                <h4 class="mb-4 text-white">Recent News</h4>
-                                <a href="{{ route('news.viewCategory', $news->category->id) }}">
-                                    <div class="d-flex align-items-center">
-                                        <div class="rounded-circle border border-2 border-primary overflow-hidden">
-                                            <img src="{{ $news->image ? asset('storage/images/' . $news->image) : asset('img/noimg.jpg') }}"
-                                                class="img-zoomin img-fluid rounded-circle w-100" alt=""
-                                                style="width: 100px; height: 100px; object-fit: cover;" />
-                                        </div>
-                                        <div class="d-flex flex-column ps-4">
-                                            <p class="text-uppercase text-white mb-3">{{ $news->category->name }}</p>
-                                            <a href="{{ route('news.show', $news->id) }}" class="h6 text-white">
-                                                {{ $news->title }}
-                                            </a>
-                                            <small class="text-white d-block"><i class="fas fa-calendar-alt me-1"></i>
-                                                {{ $news->created_at->translatedFormat('j F Y') }}</small>
-                                            </small>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        @endforeach
-                        @foreach (\App\Models\News::where('status', 'Accept')->orderBy('created_at', 'desc')->skip(1)->take(1)->get() as $news)
-                            <div class="d-flex flex-column">
-                                <a href="{{ route('news.viewCategory', $news->category->id) }}">
-                                    <div class="d-flex align-items-center">
-                                        <div class="rounded-circle border border-2 border-primary overflow-hidden">
-                                            <img src="{{ $news->image ? asset('storage/images/' . $news->image) : asset('img/noimg.jpg') }}"
-                                                class="img-zoomin img-fluid rounded-circle w-100" alt=""
-                                                style="width: 100px; height: 100px; object-fit: cover;" />
-                                        </div>
-                                        <div class="d-flex flex-column ps-4">
-                                            <p class="text-uppercase text-white mb-3">{{ $news->category->name }}</p>
-                                            <a href="{{ route('news.show', $news->id) }}" class="h6 text-white">
-                                                {{ $news->title }}
-                                            </a>
-                                            <small class="text-white d-block"><i class="fas fa-calendar-alt me-1"></i>
-                                                {{ $news->created_at->translatedFormat('j F Y') }}</small>
-                                            </small>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-                <div class="col-lg-6 col-xl-3">
-                    <div class="d-flex flex-column text-start footer-item-3">
-                        <h4 class="mb-4 text-white">Categories</h4>
-                        @foreach (\App\Models\Category::orderBy('views', 'desc')->take(6)->get() as $categories)
-                            <a class="btn-link text-white"
-                                href="{{ route('news.viewCategory', $categories->id) }}"><i
-                                    class="fas fa-angle-right text-white me-2"></i> {{ $categories->name }}</a>
-                        @endforeach
-                    </div>
-                </div>
-                <div class="col-lg-6 col-xl-3">
-                    <div class="footer-item-4">
-                        <h4 class="mb-4 text-white">Our Gallery</h4>
-                        <div class="row g-2">
-                            <div class="col-4">
-                                <div class="rounded overflow-hidden">
-                                    <img src="{{ asset('img/pict1.jpeg') }}"
-                                        class="img-zoomin img-fluid rounded w-100" alt="" />
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="rounded overflow-hidden">
-                                    <img src="{{ asset('img/pict2.jpeg') }}"
-                                        class="img-zoomin img-fluid rounded w-100" alt="" />
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="rounded overflow-hidden">
-                                    <img src="{{ asset('img/pict3.jpeg') }}"
-                                        class="img-zoomin img-fluid rounded w-100" alt="" />
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="rounded overflow-hidden">
-                                    <img src="{{ asset('img/pict4.jpeg') }}"
-                                        class="img-zoomin img-fluid rounded w-100" alt="" />
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="rounded overflow-hidden">
-                                    <img src="{{ asset('img/pict5.jpeg') }}"
-                                        class="img-zoomin img-fluid rounded w-100" alt="" />
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="rounded overflow-hidden">
-                                    <img src="{{ asset('img/pict6.jpeg') }}"
-                                        class="img-zoomin img-fluid rounded w-100" alt="" />
-                                </div>
-                            </div>
+                            <a class="btn btn-light me-2 btn-md-square rounded-circle" href="https://www.instagram.com/notifikasy/"><i
+                                    class="fab fa-instagram text-dark"></i></a>
+                            <a class="btn btn-light me-2 btn-md-square rounded-circle" href="https://www.tiktok.com/@notifikasy"><i
+                                    class="fab fa-tiktok text-dark"></i></a>
+                            <a class="btn btn-light me-2 btn-md-square rounded-circle" href="https://www.linkedin.com/company/notifikasy/ "><i
+                                    class="fab fa-linkedin text-dark"></i></a>
                         </div>
                     </div>
                 </div>
@@ -289,15 +182,12 @@
             <div class="row">
                 <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
                     <span class="text-light"><a href="#"><i
-                                class="fas fa-copyright text-light me-2"></i>Theun</a>, All right reserved.</span>
+                                class="fas fa-copyright text-light me-2"></i></a>Notifikasy 2025, All right reserved.</span>
                 </div>
-                <div class="col-md-6 my-auto text-center text-md-end text-white">
-                    <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
-                    <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
-                    <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
-                    Designed By
-                    <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
-                    Distributed By <a href="https://themewagon.com">ThemeWagon</a>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="{{ route('news.show', 14) }}" class="text-light me-3">Tentang Kami</a>
+                    <a href="{{ route('news.show', 12) }}" class="text-light me-3">Kode Etik Jurnalistik</a>
+                    <a href="{{ route('news.show', 11) }}" class="text-light">Pedoman Media Siber</a>
                 </div>
             </div>
         </div>

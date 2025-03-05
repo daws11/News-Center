@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Dashboard</title>
     <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport" />
-    <link rel="icon" href="{{ asset('admin/img/kaiadmin/favicon.ico') }}" type="image/x-icon" />
+    <link rel="icon" href="{{ asset('img/icon.jpg') }}" type="image/x-icon" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     @include('components.admin-header')
@@ -18,10 +18,10 @@
             <div class="sidebar-logo">
                 <!-- Logo Header -->
                 <div class="logo-header" data-background-color="dark">
-                    <a href="{{ route('index') }}" class="logo">
-                        <img src="{{ asset('admin/img/kaiadmin/logo_light.svg') }}" alt="navbar brand"
-                            class="navbar-brand" height="20" />
-                    </a>
+                    <!-- <a href="{{ route('index') }}" class="logo">
+                        <img src="{{ asset('img/logo.jpg') }}" alt="navbar brand"
+                            class="navbar-brand" height="60" />
+                    </a> -->
                     <div class="nav-toggle">
                         <button class="btn btn-toggle toggle-sidebar">
                             <i class="gg-menu-right"></i>
@@ -75,7 +75,7 @@
                                             </a>
                                         </li>
                                     @endif
-                                    @if (auth()->user()->hasRole('Writer') || auth()->user()->hasRole('Super Admin'))
+                                    @if (auth()->user()->hasRole('Writer') || auth()->user()->hasRole('Editor') || auth()->user()->hasRole('Super Admin'))
                                         <li>
                                             <a href="{{ route('news.create') }}">
                                                 <span class="sub-item">Create</span>

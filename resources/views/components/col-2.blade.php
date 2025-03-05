@@ -4,10 +4,10 @@
         <div class="col-12">
             <div class="row g-4 align-items-center features-item">
                 <div class="col-4">
-                    <div class="rounded-circle position-relative">
-                        <div class="overflow-hidden rounded-circle">
+                    <div class="position-relative">
+                        <div class="overflow-hidden">
                             <img src="{{ $news->image ? asset('storage/images/' . $news->image) : asset('img/noimg.jpg') }}"
-                                class="img-zoomin img-fluid rounded-circle w-100" alt="">
+                                class="img-zoomin img-fluid w-100" alt="">
                         </div>
                     </div>
                 </div>
@@ -26,16 +26,13 @@
     @endforeach
 </div>
 
-<h4 class="my-4">Stay Connected</h4>
+<!-- <h4 class="my-4">Bergabung Menjadi Kontributor!</h4> -->
 <div class="row g-4">
     <div class="col-12">
-        <a href="#" class="w-100 rounded btn btn-primary d-flex align-items-center p-3 mb-2">
-            <i class="fab fa-youtube btn btn-light btn-square rounded-circle me-3"></i>
-            <span class="text-white">Theun Dev</span>
-        </a>
-        <a href="#" class="w-100 rounded btn btn-danger d-flex align-items-center p-3 mb-4">
-            <i class="fab fa-github btn btn-light btn-square rounded-circle me-3"></i>
-            <span class="text-white">Sahrul Romadi</span>
+        <a href="{{ route('kontributor') }}" class="w-100 rounded btn btn-danger d-flex align-items-center p-3 mb-2">
+            <span class="text-white">Bergabung Menjadi Kontributor!</span>
         </a>
     </div>
 </div>
+
+

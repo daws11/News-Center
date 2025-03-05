@@ -52,7 +52,7 @@
                                     <button type="submit" class="_btn_04" id="loginButton">Login</button>
                                 </div>
 
-                                <div class="form-group nm_lk">
+                                <!-- <div class="form-group nm_lk">
                                     <p>Or Register With</p>
                                 </div>
 
@@ -70,7 +70,7 @@
                                             <li><i class="fa fa-linkedin"></i></li>
                                         </ol>
                                     </div>
-                                </div>
+                                </div> -->
                             </form>
                         </div>
                     </div>

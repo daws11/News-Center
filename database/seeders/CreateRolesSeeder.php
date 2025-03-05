@@ -15,9 +15,9 @@ class CreateRolesSeeder extends Seeder
      */
     public function run(): void
     {
-        $superAdminRole = Role::Create(['name' => 'Super Admin']);
-        $editorRole = Role::Create(['name' => 'Editor']);
-        $writerRole = Role::Create(['name' => 'Writer']);
+        $superAdminRole = Role::create(['name' => 'Super Admin']);
+        $editorRole = Role::create(['name' => 'Editor']);
+        $writerRole = Role::create(['name' => 'Writer']);
 
         Permission::firstOrCreate(['name' => 'Create News']);
         Permission::firstOrCreate(['name' => 'Store News']);
@@ -28,7 +28,7 @@ class CreateRolesSeeder extends Seeder
         Permission::firstOrCreate(['name' => 'Draft']);
 
         $writerRole->givePermissionTo(['Create News', 'Store News', 'Edit News', 'Update News', 'Draft']);
-        $editorRole->givePermissionTo(['Status News', 'Update Status News']);
+        $editorRole->givePermissionTo(['Create News', 'Update News', 'Status News', 'Update Status News']);
         $permissions = Permission::pluck('id')->all();
         $superAdminRole->syncPermissions($permissions);
 

@@ -14,7 +14,9 @@ Route::get('/', [NewsController::class, 'index'])->name('index');
 Route::get('/news/{news}/show', [NewsController::class, 'show'])->name('news.show');
 Route::post('/news/{news}/like', [LikeController::class, 'likeNews'])->name('news.like');
 Route::get('/news/{categories}/category', [NewsController::class, 'viewCategory'])->name('news.viewCategory');
-
+Route::get('/kontributor', function () {
+    return view('contributor');
+})->name('kontributor');
 // Guest
 Route::middleware(['guest'])->group(function () {
     Route::get('/login', [LoginController::class, 'login'])->name('login');
@@ -72,6 +74,8 @@ Route::middleware(['role:Super Admin'])->group(function () {
 Route::group(['middleware' => ['permission:Status News|Update Status News']], function () {
     Route::get('/news/status', [NewsController::class, 'status'])->name('news.status');
     Route::patch('/news/{news}/updatestatus', [NewsController::class, 'updateStatus'])->name('news.updateStatus');
+    Route::get('/news/create', [NewsController::class, 'create'])->name('news.create');
+    Route::post('/news', [NewsController::class, 'store'])->name('news.store');
 });
 
 // Writer
